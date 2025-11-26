@@ -111,101 +111,42 @@
         }
 
         .globe-section iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            background-color: transparent;
+            margin-top: 150px;
+            min-height: auto;
+            padding: 3rem 0;
         }
 
-        /* Galeria de Fotos */
+        .hero-section {
+            min-height: 100dvh;
+        }
+
         .photo-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            padding: 2rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            padding: 1rem;
         }
 
         .photo-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 1rem;
-            aspect-ratio: 3/4;
-            cursor: pointer;
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
+            border-radius: 0.75rem;
         }
 
-        .photo-item:hover {
-            transform: scale(1.05) rotate(2deg);
-            z-index: 20;
-            box-shadow: 0 20px 50px rgba(236, 72, 153, 0.5);
+        h1 {
+            font-size: 2rem !important;
+            line-height: 1.2 !important;
         }
 
-        .photo-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
+        h2 {
+            font-size: 1.75rem !important;
+            line-height: 1.3 !important;
         }
 
-        .photo-item:hover img {
-            transform: scale(1.1);
+        p {
+            font-size: 0.95rem !important;
         }
 
-        .photo-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
-            padding: 1.5rem;
-            transform: translateY(100%);
-            transition: transform 0.4s ease;
+        iframe {
+            min-height: 300px !important;
         }
-
-        .photo-item:hover .photo-overlay {
-            transform: translateY(0);
-        }
-
-        /* Responsividade para iPhone 15 Pro e outros celulares */
-        @media (max-width: 768px) {
-            .globe-section {
-                margin-top: 150px;
-                min-height: auto;
-                padding: 3rem 0;
-            }
-
-            .hero-section {
-                min-height: 100dvh;
-            }
-
-            .photo-gallery {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.75rem;
-                padding: 1rem;
-            }
-
-            .photo-item {
-                border-radius: 0.75rem;
-            }
-
-            h1 {
-                font-size: 2rem !important;
-                line-height: 1.2 !important;
-            }
-
-            h2 {
-                font-size: 1.75rem !important;
-                line-height: 1.3 !important;
-            }
-
-            p {
-                font-size: 0.95rem !important;
-            }
-
-            iframe {
-                min-height: 300px !important;
-            }
         }
 
         @media (max-width: 430px) {
@@ -329,20 +270,14 @@
                             Meu Mundo é Você
                         </h2>
                         <p class="text-lg text-gray-300 mb-6">
-                           Brunna, dizem que o universo é infinito e impossível de compreender, mas o meu se torna simples quando estou nos seus braços — porque tudo o que realmente importa cabe ali. Antes de você, eu apenas existia no mundo; depois de você, eu passei a viver com propósito. Você se tornou minha gravidade, o ponto exato onde tudo repousa, onde tudo encontra sentido.
+                            Brunna, dizem que o universo é infinito e complexo, mas a verdade é que o meu universo
+                            inteiro cabe num abraço seu. Antes de você, eu vivia no mundo; hoje, eu vivo em você. Você
+                            virou minha gravidade, o centro onde tudo faz sentido, o silêncio que acalma o meu caos e a
+                            risada que ilumina tudo. Não importa para onde eu olhe ou para onde a vida nos leve: meu
+                            lugar favorito no mundo é, e sempre será, ao seu lado.
                         </p>
-                        <p class="text-base text-gray-400">
-                            Você não é apenas a felicidade que eu sinto… você é a razão dela existir. É no seu abraço que o mundo desacelera, é no seu sorriso que eu encontro paz, é no seu olhar que eu descubro a melhor versão de mim. Com você, até os dias simples se tornam extraordinários.
-                        </p>
-                        <p class="text-base text-gray-400 mt-4">
-                            Você é a razão por que eu me sinto completo, a razão por que eu me sinto feliz, a razão por que eu me sinto amado. Você é a razão por que eu me sinto vivo, a razão por que eu me sinto amado, a razão por que eu me sinto feliz. Você é a razão por que eu me sinto completo, a razão por que eu me sinto feliz, a razão por que eu me sinto amado.
-                        </p>
-                        <p class="text-base text-gray-400 mt-4">
-                           Você é a calmaria que silencia meu caos, a luz que atravessa qualquer escuridão, a risada que transforma dia comum em eternidade. Não importa o tempo, o lugar, o destino ou as voltas que a vida dê — meu coração sempre vai reconhecer o caminho até você.
-                        </p>
-                        <p class='text-base text-gray-400 mt-4'>
-                            E por mais vasto que o universo seja, meu lugar favorito sempre será ao seu lado — onde eu me encontro, me completo e me reinvento. Porque, Brunna, amar você é a descoberta mais bonita que já fiz
-                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -357,17 +292,19 @@
                             Meu Coração Bate Por Você
                         </h2>
                         <p class="text-lg text-gray-300 mb-6">
-                            Cada batida do meu coração carrega o seu nome — não por hábito, mas porque você se tornou o ritmo da minha vida. Cada suspiro que escapa de mim é uma confissão silenciosa do quanto você me completa, do quanto meu mundo se encaixa no seu.
+                            Cada batida do meu coração carrega o seu nome, cada suspiro é uma prova do quanto você me
+                            completa.
                         </p>
                         <p class="text-base text-gray-400">
-                           Você não apenas conquistou meu coração… você se tornou ele. Tudo o que sinto, tudo o que planejo, tudo o que sou, passa por você. É impossível pensar em mim sem pensar em você, porque a minha história encontrou sentido quando cruzou com a sua.
+                            Você não apenas conquistou meu coração… você se tornou ele. Tudo o que sinto, tudo o que
+                            planejo, tudo o que sou, passa por você. É impossível pensar em mim sem pensar em você,
+                            porque a minha história encontrou sentido quando cruzou com a sua.
                         </p>
                         <p class="text-base text-gray-400 mt-4">
-                          Você é a minha vida. Não por dependência, mas porque tudo em mim é mais verdadeiro, mais leve, mais bonito quando tem você. Com você, o caos vira paz, o medo vira coragem, o impossível vira caminho. Seu sorriso é meu ponto de equilíbrio, sua presença é meu lar, e o simples fato de você existir já transforma tudo ao meu redor.
-
-Eu te escolho — hoje, amanhã e todos os dias que ainda virão. Escolho com calma, com maturidade, com carinho, com amor. Escolho porque meu coração sabe, reconhece, deseja e insiste. Você é, e sempre será, a parte mais bonita, mais sincera e mais inesquecível da minha história.
-
-E se a vida me der a chance, quero continuar escrevendo essa história ao seu lado. Não pela necessidade de ter alguém, mas por saber que é você quem faz tudo valer a pena.
+                            Você é a minha vida. Não por dependência, mas porque tudo em mim é mais verdadeiro, mais
+                            leve, mais bonito quando tem você. Com você, o caos vira paz, o medo vira coragem, o
+                            impossível vira caminho. Seu sorriso é meu ponto de equilíbrio, sua presença é meu lar, e o
+                            simples fato de você existir já transforma tudo ao meu redor.
                         </p>
                     </div>
 
@@ -397,14 +334,15 @@ E se a vida me der a chance, quero continuar escrevendo essa história ao seu la
                             Minha Declaração de Amor
                         </h2>
                         <p class="text-lg text-gray-300 mb-6">
-                           “Brunna, cada dia ao seu lado é uma página única, uma lembrança preciosa, uma parte da história mais bonita que eu poderia viver. Desde que você chegou, minha vida ganhou cor, sentido e magia — como se tudo finalmente tivesse encontrado seu lugar.
+                            Brunna, cada dia ao seu lado é uma página única, uma lembrança preciosa, uma parte da
+                            história mais bonita que eu poderia viver. Desde que você chegou, minha vida ganhou cor,
+                            sentido e magia — como se tudo finalmente tivesse encontrado seu lugar.
                         </p>
                         <p class="text-base text-gray-400">
-                           Você não é só a felicidade que eu sinto… você é a razão dela existir. É no seu abraço que o mundo desacelera, é no seu sorriso que eu encontro paz, é no seu olhar que eu descubro a melhor versão de mim. Com você, até os dias simples se tornam extraordinários.
-
-Eu te amo mais do que qualquer palavra pode traduzir, mais do que qualquer gesto consegue demonstrar. Meu amor por você ultrapassa explicação — ele se sente, pulsa, cresce. Você é meu ontem cheio de memórias, meu hoje cheio de certeza e todos os meus amanhãs cheios de esperança.
-
-Se a vida é um livro, então eu quero que cada capítulo tenha você. Porque nada é mais bonito, mais verdadeiro e mais meu do que te amar.
+                            Eu te amo mais do que qualquer palavra pode traduzir, mais do que qualquer gesto consegue
+                            demonstrar. Meu amor por você ultrapassa explicação — ele se sente, pulsa, cresce. Você é
+                            meu ontem cheio de memórias, meu hoje cheio de certeza e todos os meus amanhãs cheios de
+                            esperança.
                         </p>
                     </div>
                 </div>
@@ -422,18 +360,13 @@ Se a vida é um livro, então eu quero que cada capítulo tenha você. Porque na
                             Você é Meu Sol
                         </h2>
                         <p class="text-lg text-gray-300 mb-6">
-                           Como um girassol que, mesmo em meio ao vento, à chuva e às incertezas, nunca deixa de procurar a luz, meu coração sempre se vira na sua direção. É instintivo, é natural, é amor. Você ilumina meus dias, aquece aquilo que o mundo às vezes esfria, e transforma até o silêncio em conforto.
-
-Quando penso em você, tudo ganha cor. Até os caminhos mais sombrios parecem menos assustadores, porque sei que, em algum lugar, existe o seu brilho me esperando. Você é a luz que me guia quando me sinto perdido, a calma que repousa sobre o meu peito quando tudo parece desabar, a certeza mais bonita que a vida já me deu.
+                            Como um girassol que, mesmo em meio ao vento, à chuva e às incertezas, nunca deixa de
+                            procurar a luz, meu coração sempre se vira na sua direção. É instintivo, é natural, é amor.
                         </p>
                         <p class="text-base text-gray-400">
-                           Em você encontrei muito mais do que amor — encontrei abrigo, paz, esperança. Você me inspira a crescer, a ser alguém melhor, a florescer sem medo. Seu jeito, sua essência, sua presença… tudo em você me alimenta, me fortalece, me faz acreditar no amanhã.
-
-Eu queria que você soubesse que, para mim, você não é apenas parte da minha vida — você é o centro dela. É a energia que me move, o calor que me renova, o sorriso que nasce em mim sem que eu perceba. Se eu pudesse escolher um único lugar para repousar meu coração, escolheria o seu — sempre.
-
-E enquanto existir sol no céu, eu vou continuar me virando pra você. Porque te amar é a coisa mais bonita e verdadeira que já aconteceu em mim. E se um dia você permitir, quero continuar crescendo ao seu lado, construindo um jardim inteiro de futuros, sonhos e dias iluminados.
-
-Porque, pra mim, você sempre será o meu sol — e eu, eternamente, seu girassol.
+                            Você ilumina meus dias, aquece aquilo que o mundo às vezes esfria, e transforma até o
+                            silêncio em conforto. Em você encontrei muito mais do que amor — encontrei abrigo, paz,
+                            esperança.
                         </p>
                     </div>
 
