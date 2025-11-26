@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Brunna❤️</title>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        indigo: {
+                            400: '#f472b6',
+                            500: '#ec4899',
+                            600: '#db2777',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: black;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ec4899;
+            border-radius: 4px;
+        }
+
+        /* Animação de corações de fundo */
+        .bg_heart {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            top: -50%;
+            transform: rotate(-45deg);
+            opacity: 0.25;
+        }
+
+        .heart:before {
+            position: absolute;
+            top: -50%;
+            left: 0;
+            display: block;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            border-radius: 100%;
+        }
+
+        .heart:after {
+            position: absolute;
+            top: 0;
+            right: -50%;
+            display: block;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            border-radius: 100%;
+        }
+
+        @keyframes love {
+            0% {
+                top: 110%
+            }
+        }
+
+        .hero-section {
+            background-color: transparent;
+            min-height: 100vh;
+            position: relative;
+            z-index: 10;
+        }
+
+        .globe-section {
+            margin-top: 300px;
+            min-height: 100vh;
+            position: relative;
+            background: linear-gradient(to bottom, #000000, #000000);
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        .globe-section iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: transparent;
+        }
+
+        /* Galeria de Fotos */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem;
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            aspect-ratio: 3/4;
+            cursor: pointer;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
+        }
+
+        .photo-item:hover {
+            transform: scale(1.05) rotate(2deg);
+            z-index: 20;
+            box-shadow: 0 20px 50px rgba(236, 72, 153, 0.5);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            padding: 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .photo-item:hover .photo-overlay {
+            transform: translateY(0);
+        }
+
+        /* Responsividade para iPhone 15 Pro e outros celulares */
+        @media (max-width: 768px) {
+            .globe-section {
+                margin-top: 150px;
+                min-height: auto;
+                padding: 3rem 0;
+            }
+
+            .hero-section {
+                min-height: 100dvh;
+            }
+
+            .photo-gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+                padding: 1rem;
+            }
+
+            .photo-item {
+                border-radius: 0.75rem;
+            }
+
+            h1 {
+                font-size: 2rem !important;
+                line-height: 1.2 !important;
+            }
+
+            h2 {
+                font-size: 1.75rem !important;
+                line-height: 1.3 !important;
+            }
+
+            p {
+                font-size: 0.95rem !important;
+            }
+
+            iframe {
+                min-height: 300px !important;
+            }
+        }
+
+        @media (max-width: 430px) {
+            .photo-gallery {
+                gap: 0.5rem;
+                padding: 0.75rem;
+            }
+
+            .globe-section {
+                margin-top: 100px;
+                padding: 2rem 0;
+            }
+        }
+
+        /* Animação de fade-in para fotos */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .photo-item {
+            animation: fadeInUp 0.6s ease backwards;
+        }
+
+        .photo-item:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .photo-item:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .photo-item:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .photo-item:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .photo-item:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        header,
+        nav,
+        section,
+        div.relative,
+        h1,
+        h2,
+        p,
+        a,
+        button,
+        img {
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero-section">
+        <div class="relative isolate px-6 pt-14 lg:px-8">
+            <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+                aria-hidden="true">
+                <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+                    style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+                </div>
+            </div>
+
+            <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+                <div class="hidden sm:mb-8 sm:flex sm:justify-center">
+                    <div
+                        class="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-400 ring-1 ring-white/10 hover:ring-white/20">
+                        Uma surpresa especial para você. <a href="#" class="font-semibold text-indigo-400"><span
+                                class="absolute inset-0" aria-hidden="true"></span>Ver agora <span
+                                aria-hidden="true">&rarr;</span></a>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+                        Para a mulher da minha vida
+                    </h1>
+                    <p class="mt-6 text-lg leading-8 text-gray-300">
+                        Brunna, este site é um pedacinho do meu amor por você. Aqui temos nossas memórias, jogos e um
+                        chat para te lembrar o quanto você é especial.
+                    </p>
+                </div>
+            </div>
+
+            <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+                aria-hidden="true">
+                <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+                    style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seção do Globo 3D -->
+    <section id="globe" class="globe-section">
+        <div class="relative h-full flex items-center justify-center px-6 lg:px-8 py-16">
+            <div class="max-w-7xl mx-auto w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                    <div class="order-2 lg:order-1">
+                        <div class="w-full h-[400px] lg:h-[500px] rounded-lg overflow-hidden shadow-2xl">
+                            <iframe src="realistic-globe.html"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="order-1 lg:order-2 text-center lg:text-left">
+                        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-5xl mb-4">
+                            Meu Mundo é Você
+                        </h2>
+                        <p class="text-lg text-gray-300 mb-6">
+                            Brunna, dizem que o universo é infinito e complexo, mas a verdade é que o meu universo
+                            inteiro cabe num abraço seu. Antes de você, eu vivia no mundo; hoje, eu vivo em você. Você
+                            virou minha gravidade, o centro onde tudo faz sentido, o silêncio que acalma o meu caos e a
+                            risada que ilumina tudo. Não importa para onde eu olhe ou para onde a vida nos leve: meu
+                            lugar favorito no mundo é, e sempre será, ao seu lado.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção da Animação de Coração -->
+    <section class="globe-section">
+        <div class="relative h-full flex items-center justify-center px-6 lg:px-8 py-16">
+            <div class="max-w-7xl mx-auto w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                    <div class="order-1 lg:order-1 text-center lg:text-left">
+                        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-5xl mb-4">
+                            Meu Coração Bate Por Você
+                        </h2>
+                        <p class="text-lg text-gray-300 mb-6">
+                            Cada batida do meu coração carrega o seu nome, cada suspiro é uma prova do quanto você me
+                            completa.
+                        </p>
+                        <p class="text-base text-gray-400">
+                            Você não apenas conquistou meu coração… você se tornou ele. Tudo o que sinto, tudo o que
+                            planejo, tudo o que sou, passa por você. É impossível pensar em mim sem pensar em você,
+                            porque a minha história encontrou sentido quando cruzou com a sua.
+                        </p>
+                        <p class="text-base text-gray-400 mt-4">
+                            Você é a minha vida. Não por dependência, mas porque tudo em mim é mais verdadeiro, mais
+                            leve, mais bonito quando tem você. Com você, o caos vira paz, o medo vira coragem, o
+                            impossível vira caminho. Seu sorriso é meu ponto de equilíbrio, sua presença é meu lar, e o
+                            simples fato de você existir já transforma tudo ao meu redor.
+                        </p>
+                    </div>
+
+                    <div class="order-2 lg:order-2">
+                        <div class="w-full h-[400px] lg:h-[500px] rounded-lg overflow-hidden shadow-2xl">
+                            <iframe src="heart-particle-animation.html"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Valentine Confession -->
+    <section class="globe-section">
+        <div class="relative h-full flex items-center justify-center px-6 lg:px-8 py-16">
+            <div class="max-w-7xl mx-auto w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                    <div class="order-2 lg:order-1">
+                        <div class="w-full h-[400px] lg:h-[500px] rounded-lg overflow-hidden shadow-2xl">
+                            <iframe src="71/valentine-confession.html"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="order-1 lg:order-2 text-center lg:text-left">
+                        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-5xl mb-4">
+                            Minha Declaração de Amor
+                        </h2>
+                        <p class="text-lg text-gray-300 mb-6">
+                            Brunna, cada dia ao seu lado é uma página única, uma lembrança preciosa, uma parte da
+                            história mais bonita que eu poderia viver. Desde que você chegou, minha vida ganhou cor,
+                            sentido e magia — como se tudo finalmente tivesse encontrado seu lugar.
+                        </p>
+                        <p class="text-base text-gray-400">
+                            Eu te amo mais do que qualquer palavra pode traduzir, mais do que qualquer gesto consegue
+                            demonstrar. Meu amor por você ultrapassa explicação — ele se sente, pulsa, cresce. Você é
+                            meu ontem cheio de memórias, meu hoje cheio de certeza e todos os meus amanhãs cheios de
+                            esperança.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Sunflower Animation -->
+    <section class="globe-section">
+        <div class="relative h-full flex items-center justify-center px-6 lg:px-8 py-16">
+            <div class="max-w-7xl mx-auto w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                    <div class="order-1 lg:order-1 text-center lg:text-left">
+                        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-5xl mb-4">
+                            Você é Meu Sol
+                        </h2>
+                        <p class="text-lg text-gray-300 mb-6">
+                            Como um girassol que, mesmo em meio ao vento, à chuva e às incertezas, nunca deixa de
+                            procurar a luz, meu coração sempre se vira na sua direção. É instintivo, é natural, é amor.
+                        </p>
+                        <p class="text-base text-gray-400">
+                            Você ilumina meus dias, aquece aquilo que o mundo às vezes esfria, e transforma até o
+                            silêncio em conforto. Em você encontrei muito mais do que amor — encontrei abrigo, paz,
+                            esperança.
+                        </p>
+                    </div>
+
+                    <div class="order-2 lg:order-2">
+                        <div class="w-full h-[400px] lg:h-[500px] rounded-lg overflow-hidden shadow-2xl">
+                            <iframe src="sunflower-animation.html"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOVA SEÇÃO: Galeria de Fotos -->
+    <section class="globe-section">
+        <div class="relative h-full px-6 lg:px-8 py-16">
+            <div class="max-w-7xl mx-auto w-full">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-5xl mb-4">
+                        Nossos Momentos Especiais
+                    </h2>
+                    <p class="text-lg text-gray-300">
+                        Cada foto é uma lembrança, cada lembrança é um pedaço do nosso amor
+                    </p>
+                </div>
+
+                <div class="photo-gallery">
+                    <div class="photo-item">
+                        <img src="img/!hR.jpg" alt="Momento especial 1">
+                        <div class="photo-overlay">
+                            <p class="text-white text-sm font-medium">💕 Nosso amor</p>
+                        </div>
+                    </div>
+
+                    <div class="photo-item">
+                        <img src="img/Comer.jpg" alt="Momento especial 2">
+                        <div class="photo-overlay">
+                            <p class="text-white text-sm font-medium">🍽️ Nossos jantares</p>
+                        </div>
+                    </div>
+
+                    <div class="photo-item">
+                        <img src="img/Gostosura.jpg" alt="Momento especial 3">
+                        <div class="photo-overlay">
+                            <p class="text-white text-sm font-medium">😊 Gostosura</p>
+                        </div>
+                    </div>
+
+                    <div class="photo-item">
+                        <img src="img/Queixo.jpg" alt="Momento especial 4">
+                        <div class="photo-overlay">
+                            <p class="text-white text-sm font-medium">❤️ Detalhes</p>
+                        </div>
+                    </div>
+
+                    <div class="photo-item">
+                        <img src="img/Saposa.jpg" alt="Momento especial 5">
+                        <div class="photo-overlay">
+                            <p class="text-white text-sm font-medium">🦋 Saposa</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção do Cubo Mágico -->
+    <section class="globe-section">
+        <div class="relative h-full px-6 lg:px-8 py-16">
+            <div class="max-w-7xl mx-auto w-full">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-5xl mb-4">
+                        Nosso Quebra-Cabeça
+                    </h2>
+                    <p class="text-lg text-gray-300 mb-6">
+                        Como um cubo mágico, nosso relacionamento tem suas cores, suas camadas e seus desafios. Mas
+                        assim como esse jogo, quando estamos juntos, tudo se encaixa perfeitamente.
+                    </p>
+                    <p class="text-base text-gray-400">
+                        Cada lado do cubo representa um aspecto do nosso amor: paixão, cumplicidade, respeito, diversão,
+                        amizade e sonhos. E não importa quantas voltas a vida dê, sempre encontramos o caminho um para o
+                        outro.
+                    </p>
+                    <p class="text-sm text-gray-500 mt-4">
+                        <strong>Como jogar:</strong> Toque duas vezes para embaralhar. Arraste para girar as camadas.
+                        Resolva o cubo e celebre!
+                    </p>
+                </div>
+
+                <div class="w-full h-[600px] lg:h-[700px] rounded-lg overflow-hidden shadow-2xl">
+                    <iframe src="rubics-cube.html" class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animação de corações de fundo -->
+    <div class="bg_heart"></div>
+
+    <script>
+        $(document).ready(function () {
+            function randomInt(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            $('.bg_heart').each(function () {
+                var heartCount = ($(this).width() / 50) * 5;
+                var colors = ['#ec4899', '#f472b6', '#db2777', '#be185d'];
+
+                for (var i = 0; i <= heartCount; i++) {
+                    var size = randomInt(10, 30);
+                    var color = colors[randomInt(0, colors.length - 1)];
+                    var leftPos = randomInt(0, 97);
+                    var topPos = randomInt(-100, -10);
+                    var duration = randomInt(5, 15);
+
+                    $(this).append('<div class="heart" style="width:' + size + 'px;height:' + size + 'px;left:' + leftPos + '%;top:' + topPos + '%;background:' + color + ';animation:love ' + duration + 's ease-in infinite;"></div>');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
